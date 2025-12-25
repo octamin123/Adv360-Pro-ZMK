@@ -25,26 +25,40 @@
   keymap {
     compatible = "zmk,keymap";
 
+    // Layer index map (based on your file order):
+    // 0: default_layer (Base)
+    // 1: keypad
+    // 2: fn
+    // 3: mod
+    // 4: extra1  (we'll use this as "Shift" layer for Real-Prog-Dvorak)
+
     default_layer {
-      display-name = "Base";
+      display-name = "Base (RPD)";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        // number row (Real Programmers Dvorak base symbols)
+        &kp LS(N4)   &kp LS(EQUAL) &kp LBKT     &kp LS(LBKT)  &kp LS(N9)  &kp LS(N7) &tog 1                                             &mo 3 &kp EQUAL    &kp LS(N0)  &kp LS(RBKT) &kp RBKT     &kp LS(N8)  &kp LS(BSLH)
+        // top alpha row: ; , . p y f   |   g c r l / @ \
+        &kp TAB      &kp SEMI      &kp COMMA   &kp DOT       &kp P       &kp Y      &kp BSLH                                              &none &kp G        &kp C       &kp R        &kp L        &kp FSLH    &kp AT
+        // home row: a o e u i   |   d h t n s -
+        &kp ESC      &kp A         &kp O       &kp E         &kp U       &kp I      &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL     &none &kp D        &kp H       &kp T        &kp N        &kp S       &kp MINUS
+        // bottom alpha row (approx on your matrix): ' q j k x   |   b m w v z
+        &mo 4        &kp SQT       &kp Q       &kp J         &kp K       &kp X                             &kp HOME &kp PG_UP                             &kp B        &kp M       &kp W        &kp V        &kp Z       &mo 4
+        // thumbs / nav (kept as-is except GRAVE -> backslash to match RPD bottom-left "\")
+        &mo 2        &kp BSLH      &kp CAPS    &kp LEFT      &kp RIGHT                 &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT     &kp RBKT     &mo 2
       >;
     };
+
     keypad {
-      display-name = "Kp";
+      display-name = "Kp (RPD)";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &kp LS(N4)   &kp LS(EQUAL) &kp LBKT     &kp LS(LBKT)  &kp LS(N9)  &kp LS(N7) &trans                                            &mo 3 &kp EQUAL    &kp KP_NUM  &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp LS(BSLH)
+        &kp TAB      &kp SEMI      &kp COMMA    &kp DOT       &kp P       &kp Y      &kp BSLH                                           &none &kp G        &kp KP_N7   &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp AT
+        &kp ESC      &kp A         &kp O        &kp E         &kp U       &kp I      &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL     &none &kp D        &kp KP_N4   &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp MINUS
+        &mo 4        &kp SQT       &kp Q        &kp J         &kp K       &kp X                             &kp HOME &kp PG_UP                             &kp B        &kp KP_N1   &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &mo 4
+        &mo 2        &kp BSLH      &kp CAPS     &kp LEFT      &kp RIGHT                 &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0               &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
       >;
     };
+
     fn {
       display-name = "Fn";
       bindings = <
@@ -55,6 +69,7 @@
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
       >;
     };
+
     mod {
       display-name = "Mod";
       bindings = <
@@ -65,23 +80,36 @@
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
       >;
     };
-    extra1 { 
-      display-name = "Red";    
+
+    // Real-Prog-Dvorak "Shift layer" (momentary on the physical Shift keys via &mo 4)
+    extra1 {
+      display-name = "Shift (RPD)";
+      bindings = <
+        // matches Prime's shift image row for the number row positions (best-effort on your matrix)
+        &kp LS(GRAVE) &kp N1        &kp N2       &kp N3       &kp N4       &kp N5       &trans                                         &trans &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp GRAVE
+        // : < > P Y F   |   G C R L ? ^ #
+        &trans        &kp LS(SEMI)  &kp LT       &kp GT       &kp LS(P)    &kp LS(Y)    &kp HASH                                      &trans &kp LS(G)    &kp LS(C)    &kp LS(R)    &kp LS(L)    &kp QMARK    &kp CARET
+        // A O E U I   |   D H T N S _
+        &trans        &kp LS(A)     &kp LS(O)    &kp LS(E)    &kp LS(U)    &kp LS(I)    &trans        &trans &trans &trans &trans        &trans &kp LS(D)    &kp LS(H)    &kp LS(T)    &kp LS(N)    &kp LS(S)    &kp LS(MINUS)
+        // | " Q J K X   |   B M W V Z
+        &trans        &kp PIPE      &kp DQT      &kp LS(Q)    &kp LS(J)    &kp LS(K)                  &trans &trans                  &kp LS(B)    &kp LS(M)    &kp LS(W)    &kp LS(V)    &kp LS(Z)    &trans
+        // keep thumbs/nav mostly passthrough (so you can still backspace/enter/etc while holding shift-layer)
+        &trans        &kp PIPE      &trans       &trans       &trans                    &trans &trans   &trans   &trans   &trans   &trans                    &trans &trans &trans       &trans       &trans
+      >;
+    };
+
+    extra2 {
+      display-name = "Purple";
       status = "reserved";
     };
 
-    extra2 { 
-      display-name = "Purple";    
+    extra3 {
+      display-name = "Cyan";
       status = "reserved";
     };
 
-    extra3 { 
-      display-name = "Cyan";    
-      status = "reserved";
-    };
-
-    extra4 { 
-      display-name = "Yellow";    
+    extra4 {
+      display-name = "Yellow";
       status = "reserved";
     };
   };
