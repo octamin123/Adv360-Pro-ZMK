@@ -20,56 +20,149 @@
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
+
+      mm_plus_1: mm_plus_1 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_PLUS_1";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp PLUS>, <&kp N1>;
+      };
+      mm_lbkt_2: mm_lbkt_2 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_LBKT_2";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp LBKT>, <&kp N2>;
+      };
+      mm_lcbr_3: mm_lcbr_3 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_LCBR_3";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp LCBR>, <&kp N3>;
+      };
+      mm_lpar_4: mm_lpar_4 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_LPAR_4";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp LPAR>, <&kp N4>;
+      };
+      mm_ampr_5: mm_ampr_5 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_AMPR_5";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp AMPS>, <&kp N5>;
+      };
+      mm_equal_6: mm_equal_6 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_EQUAL_6";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp EQUAL>, <&kp N6>;
+      };
+      mm_rpar_7: mm_rpar_7 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_RPAR_7";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp RPAR>, <&kp N7>;
+      };
+      mm_rcbr_8: mm_rcbr_8 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_RCBR_8";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp RCBR>, <&kp N8>;
+      };
+      mm_rbkt_9: mm_rbkt_9 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_RBKT_9";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp RBKT>, <&kp N9>;
+      };
+      mm_star_0: mm_star_0 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_STAR_0";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp STAR>, <&kp N0>;
+      };
+
+      // KLC: OEM_4 -> '!' unshift, '%' shift
+      mm_excl_perc: mm_excl_perc {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_EXCL_PERC";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp EXCL>, <&kp PRCNT>;
+      };
+
+      // KLC: OEM_6 -> '|' unshift, '`' shift
+      mm_pipe_grave: mm_pipe_grave {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_PIPE_GRAVE";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp PIPE>, <&kp GRAVE>;
+      };
+
+      // KLC: OEM_PLUS -> '@' unshift, '^' shift
+      mm_at_caret: mm_at_caret {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_AT_CARET";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp AT>, <&kp CARET>;
+      };
+
+      // KLC: OEM_3 -> '$' unshift, '~' shift
+      mm_dollar_tilde: mm_dollar_tilde {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_DOLLAR_TILDE";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp DLLR>, <&kp TILDE>;
+      };
+
+      // KLC: OEM_5 -> '\' unshift, '#' shift
+      mm_bslh_hash: mm_bslh_hash {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MM_BSLH_HASH";
+        #binding-cells = <0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        bindings = <&kp BSLH>, <&kp HASH>;
+      };
     };
 
   keymap {
     compatible = "zmk,keymap";
 
-    /***************
-     * LAYER 0: Base (Prime Real-Prog-Dvorak)
-     ***************/
     default_layer {
-      display-name = "Base";
+      display-name = "Base (RealPDvo)";
       bindings = <
-        /* Top row: $ + [ { ( &  = ) } ] * ! |  Backspace */
-        &kp DOLLAR &kp PLUS   &kp LBKT  &kp LCUR  &kp LPAR  &kp AMPS  &none                                                &none &kp EQUAL &kp RPAR &kp RCUR &kp RBKT &kp STAR &kp BSPC
-
-        /* Row 2: Tab ; , . p y f g c r l / @ \ */
-        &kp TAB    &kp SEMI   &kp COMMA &kp DOT   &kp P     &kp Y     &none                                                &none &kp F     &kp G    &kp C    &kp R    &kp L    &kp FSLH
-
-        /* Row 3: Caps a o e u i d h t n s -  Enter */
-        &kp CAPS   &kp A      &kp O     &kp E     &kp U     &kp I     &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL &none &kp D &kp H &kp T &kp N &kp S &kp MINUS
-
-        /* Row 4: (Shift layer key) \ ' q j k x b m w v z (Shift layer key) */
-        &mo 4      &kp BSLH   &kp SQT   &kp Q     &kp J     &kp K                              &kp HOME &kp PG_UP                       &kp X &kp B &kp M &kp W &kp V &mo 4
-
-        /* Thumb / bottom row: KEEP EXACTLY AS YOUR ORIGINAL (only moved layer keys safely) */
-        &mo 2      &tog 1     &mo 3     &kp LEFT  &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &mm_pipe_grave &mm_plus_1 &mm_lbkt_2 &mm_lcbr_3 &mm_lpar_4 &mm_ampr_5 &tog 1                                                           &mo 3 &mm_equal_6 &mm_rpar_7 &mm_rcbr_8 &mm_rbkt_9 &mm_star_0 &mm_excl_perc
+        &kp TAB        &kp SEMI  &kp COMMA  &kp DOT    &kp P      &kp Y      &none                                                             &none &kp F       &kp G      &kp C      &kp R      &kp L      &mm_bslh_hash
+        &kp ESC        &kp A     &kp O      &kp E      &kp U      &kp I      &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp D       &kp H      &kp T      &kp N      &kp S      &kp MINUS
+        &kp LSHFT      &kp SQT   &kp Q      &kp J      &kp K      &kp X                            &kp HOME &kp PG_UP                           &kp B  &kp M       &kp W      &kp V      &kp Z      &mm_at_caret &kp RSHFT
+        &mo 2          &mm_dollar_tilde &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
       >;
     };
 
-    /***************
-     * LAYER 1: Keypad (kept structure; left side stays Prime, right becomes keypad)
-     ***************/
     keypad {
       display-name = "Kp";
       bindings = <
-        /* Keep Prime top-row feel on left; keypad on right; keep BSPC on top-right */
-        &kp DOLLAR &kp PLUS   &kp LBKT  &kp LCUR  &kp LPAR  &kp AMPS  &trans                                               &mo 3 &kp KP_EQUAL &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DIVIDE &kp BSPC
-
-        &kp TAB    &kp SEMI   &kp COMMA &kp DOT   &kp P     &kp Y     &none                                                &none &kp KP_N4     &kp KP_N5 &kp KP_N6 &kp KP_MULTIPLY &kp KP_MINUS &kp BSLH
-
-        &kp CAPS   &kp A      &kp O     &kp E     &kp U     &kp I     &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL &none &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS &kp SQT
-
-        &mo 4      &kp BSLH   &kp SQT   &kp Q     &kp J     &kp K                              &kp HOME &kp PG_UP                       &kp X &kp KP_N0 &kp KP_DOT &kp KP_ENTER &kp KP_ENTER &mo 4
-
-        &mo 2      &tog 1     &mo 3     &kp LEFT  &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP &kp DOWN  &kp KP_DOT &kp RBKT &mo 2
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp mm_excl_perc
+        &kp TAB   &kp SEMI     &kp COMMA    &kp DOT    &kp P      &kp Y  &none                                                            &none &kp F  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &mm_bslh_hash
+        &kp ESC   &kp A     &kp O    &kp E    &kp U      &kp I  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp D  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp MINUS
+        &kp LSHFT &kp SQT     &kp Q    &kp J    &kp K      &kp X                            &kp HOME &kp PG_UP                           &kp D  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+        &mo 2     &mm_dollar_tilde &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
       >;
     };
 
-    /***************
-     * LAYER 2: Fn (unchanged from yours)
-     ***************/
     fn {
       display-name = "Fn";
       bindings = <
@@ -81,9 +174,6 @@
       >;
     };
 
-    /***************
-     * LAYER 3: Mod (unchanged from yours)
-     ***************/
     mod {
       display-name = "Mod";
       bindings = <
@@ -95,48 +185,10 @@
       >;
     };
 
-    /***************
-     * LAYER 4: Shift (Prime Real-Prog-Dvorak shift layer)
-     * This matches Prime’s “shift image” exactly (numbers row + uppercase letters + shifted symbols)
-     ***************/
-    shift_layer {
-      display-name = "Shift";
-      bindings = <
-        /* Top row: ~ 1 2 3 4 5 6 7 8 9 0 % ` Backspace */
-        &kp TILDE &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &none                                              &none &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BSPC
-
-        /* Row 2: Tab : < > P Y F G C R L ? ^ # */
-        &kp TAB   &kp COLON &kp LT &kp GT  &kp LS(P) &kp LS(Y) &none                                           &none &kp LS(F) &kp LS(G) &kp LS(C) &kp LS(R) &kp LS(L) &kp QMARK
-
-        /* Row 3: Caps A O E U I D H T N S - (same dash) */
-        &kp CAPS  &kp LS(A) &kp LS(O) &kp LS(E) &kp LS(U) &kp LS(I) &none        &kp LCTRL &kp LALT &kp LGUI &kp RCTRL &none &kp LS(D) &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S) &kp MINUS
-
-        /* Row 4: (hold shift layer) | " Q J K X B M W V Z (hold shift layer) */
-        &trans    &kp PIPE  &kp DQT  &kp LS(Q) &kp LS(J) &kp LS(K)                     &kp HOME &kp PG_UP                    &kp LS(X) &kp LS(B) &kp LS(M) &kp LS(W) &kp LS(V) &trans
-
-        /* Bottom/thumbs: keep identical so nothing “blows up” */
-        &trans    &trans    &trans   &trans    &trans                  &kp BSPC &kp DEL &kp END &kp PG_DN &kp ENTER &kp SPACE             &kp UP &kp DOWN &trans &trans &trans
-      >;
-    };
-
-    extra1 {
-      display-name = "Red";
-      status = "reserved";
-    };
-
-    extra2 {
-      display-name = "Purple";
-      status = "reserved";
-    };
-
-    extra3 {
-      display-name = "Cyan";
-      status = "reserved";
-    };
-
-    extra4 {
-      display-name = "Yellow";
-      status = "reserved";
-    };
+    extra1 { display-name = "Red";    status = "reserved"; };
+    extra2 { display-name = "Purple"; status = "reserved"; };
+    extra3 { display-name = "Cyan";   status = "reserved"; };
+    extra4 { display-name = "Yellow"; status = "reserved"; };
   };
 };
+
