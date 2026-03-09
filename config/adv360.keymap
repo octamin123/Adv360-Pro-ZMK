@@ -168,7 +168,7 @@
     default_layer {
       display-name = "Base (RealPDvo)";
       bindings = <
-        &mm_bslh_pipe &mm_plus_1 &mm_lbkt_2 &mm_lbrc_3 &mm_lpar_4 &mm_ampr_5 &tog 1                                                           &mo 3 &mm_equal_6 &mm_rpar_7 &mm_rbrc_8 &mm_rbkt_9 &mm_star_0 &mm_excl_perc
+        &mm_pipe_grave &mm_plus_1 &mm_lbkt_2 &mm_lbrc_3 &mm_lpar_4 &mm_ampr_5 &tog 1                                                           &mo 3 &mm_equal_6 &mm_rpar_7 &mm_rbrc_8 &mm_rbkt_9 &mm_star_0 &mm_excl_perc
         &kp TAB       &kp SEMI   &kp COMMA  &kp DOT    &kp P      &kp Y      &none                                                            &none &kp F       &kp G      &kp C      &kp R      &kp L      &mm_bslh_hash
         &kp ESC       &kp A      &kp O      &kp E      &kp U      &kp I      &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp D       &kp H      &kp T      &kp N      &kp S      &kp MINUS
         &kp LSHFT     &kp SQT    &kp Q      &kp J      &kp K      &kp X                            &kp HOME &kp PG_UP                               &kp B       &kp M      &kp W      &kp V      &kp Z      &kp RSHFT
@@ -179,7 +179,7 @@
     keypad {
       display-name = "Kp";
       bindings = <
-        &mm_bslh_pipe &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N4 &kp KP_N5 &trans                                                           &mo 3 &kp KP_N6 &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0 &mm_excl_perc
+        &mm_pipe_grave &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N4 &kp KP_N5 &trans                                                           &mo 3 &kp KP_N6 &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0 &mm_excl_perc
         &kp TAB       &kp SEMI  &kp COMMA &kp DOT   &kp P     &kp Y     &none                                                            &none &kp F     &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &mm_bslh_hash
         &kp ESC       &kp A     &kp O     &kp E     &kp U     &kp I     &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp D     &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &kp MINUS
         &kp LSHFT     &kp SQT   &kp Q     &kp J     &kp K     &kp X                            &kp HOME &kp PG_UP                              &kp B     &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &kp RSHFT
